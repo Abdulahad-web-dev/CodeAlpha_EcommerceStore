@@ -4,12 +4,16 @@
     "api/index.js": {
       "maxDuration": 10,
       "runtime": "nodejs18.x"
+    },
+    "api/vercel-db.js": {
+      "maxDuration": 10,
+      "runtime": "nodejs18.x"
     }
   },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "destination": "/api/vercel-db.js"
     },
     {
       "source": "/((?!api).*)",
@@ -34,5 +38,8 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
